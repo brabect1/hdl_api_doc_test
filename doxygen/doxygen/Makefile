@@ -16,7 +16,7 @@
 WITH_DOXYGEN ?= doxygen
 
 # Path to the Graphviz `dot` binary.
-WITH_GRAPHVIZ_DOT ?= $(shell which bash)
+WITH_GRAPHVIZ_DOT ?= $(shell which dot)
 
 # Path to the Intelligent DV (IDV) script for processing Doxygen template files
 # and altering them with settings from *Delta Files*.
@@ -41,6 +41,14 @@ DOXY_PRJ_TEMPLATE := Doxyfile.prj.template
 
 # Project specific Doxygen settings.
 DOXY_PRJ_DELTA := Doxyfile.prj.delta
+
+.PHONY: doc
+doc: $(DOXY_PRJ_TEMPLATE)
+	mkdir -p ../doc/api && $(WITH_DOXYGEN) $(DOXY_PRJ_TEMPLATE)
+
+.PHONY: clean
+clean:
+	rm -rf ../doc/api idv/ dofilter.sh $(DOXY_PRJ_TEMPLATE) $(DOXY_SV_TEMPLATE)
 
 # Create a wrapper script for the IDV filter.
 dofilter.sh: $(WITH_IDV_DOXY_FILTER)
@@ -86,12 +94,6 @@ $(DOXY_PRJ_TEMPLATE): dofilter.sh $(WITH_IDV_DOXY_SCRIPT) $(DOXY_PRJ_DELTA) $(DO
         --template $(DOXY_SV_TEMPLATE) \
         --delta $(DOXY_PRJ_DELTA) \
         --output $@
-
-.PHONY: doc
-doc: $(DOXY_PRJ_TEMPLATE)
-#	mkdir -p ../doc/api && $(DOXYGEN) $(DOXY_PRJ_TEMPLATE)
-
-.PHONY: clean
-clean:
-	rm -rf ../doc/api idv/ dofilter.sh $(DOXY_PRJ_TEMPLATE) $(DOXY_SV_TEMPLATE)
+	@echo "------- $(WITH_GRAPHVIZ_DOT)"
+	$(if $(wildcard $(WITH_GRAPHVIZ_DOT)),sed -i 's@DOT_PATH\s*=.*$$@DOT_PATH=$(dir $(abspath $(WITH_GRAPHVIZ_DOT)))@' $@)
 

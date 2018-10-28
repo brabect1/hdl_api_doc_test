@@ -22,3 +22,10 @@ INCLUDE_PATH           = <PATH_PRJ>/src
 INPUT                  = <PATH_PRJ>/src
 #EXAMPLE_PATH           = <PATH_PRJ>/test
 
+# If proper coding style is used, then *.svh files are only included. If we let
+# Doxygen process also *.svh files, it will include their contents twice (once
+# as a standalone file and second as a part of the file that includes it).
+# Downside of it is that the include files won't appear in the list of API DOC
+# files and their source code won't be indexed.
+## FILE_PATTERNS          = *.sv
+
