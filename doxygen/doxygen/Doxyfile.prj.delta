@@ -1,0 +1,24 @@
+# Copyright 2018 Tomas Brabec
+# 
+# Licensed under the Apache License, Version 2.0 (the "License");
+# you may not use this file except in compliance with the License.
+# You may obtain a copy of the License at
+# 
+#     http://www.apache.org/licenses/LICENSE-2.0
+# 
+# Unless required by applicable law or agreed to in writing, software
+# distributed under the License is distributed on an "AS IS" BASIS,
+# WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+# See the License for the specific language governing permissions and
+# limitations under the License.
+
+FILTER_PATTERNS        = *.sv=<PATH_DOXYSCR>/dofilter.sh *.svh=<PATH_DOXYSCR>/dofilter.sh
+STRIP_FROM_PATH        = <PATH_PRJ>
+PROJECT_NAME           = "APB UVM Agent"
+PROJECT_NUMBER         = 0.0.1
+HTML_OUTPUT            = <PATH_PRJ>/doc/api
+HTML_FOOTER            = <PATH_DOXYSCR>/html/footer.html
+INCLUDE_PATH           = <PATH_PRJ>/src
+INPUT                  = <PATH_PRJ>/src
+#EXAMPLE_PATH           = <PATH_PRJ>/test
+
