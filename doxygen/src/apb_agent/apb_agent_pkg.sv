@@ -16,6 +16,10 @@
 //   the License for the specific language governing
 //   permissions and limitations under the License.
 //------------------------------------------------------------
+
+/**
+* The UVC package that encapuslates the individual components.
+*/
 package apb_agent_pkg;
 
 import uvm_pkg::*;

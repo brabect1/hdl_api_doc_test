@@ -16,13 +16,17 @@
 //   the License for the specific language governing
 //   permissions and limitations under the License.
 //------------------------------------------------------------
-//
-// Class Description:
-//
-// Functional coverage monitor for the APB agent
-//
-// Collects basic coverage information
-//
+
+
+/**
+* Collects basic functional coverage information observed by an APB agent.
+*
+* An instance of the coverage monitor will be part of the agent only if its
+* configuration knob, apb_agent_config::has_functional_coverage, is set.
+*
+* The coverage monitor extends uvm_subscriber so it can be connected to
+* apb_monitor.
+*/
 class apb_coverage_monitor extends uvm_subscriber #(apb_seq_item);
 
 // UVM Factory Registration Macro
@@ -33,6 +37,8 @@ class apb_coverage_monitor extends uvm_subscriber #(apb_seq_item);
 //------------------------------------------
 // Cover Group(s)
 //------------------------------------------
+
+//! Covers that both read and write transactions were observed.
 covergroup apb_cov;
 OPCODE: coverpoint analysis_txn.we {
   bins write = {1};
@@ -45,6 +51,9 @@ endgroup
 //------------------------------------------
 // Component Members
 //------------------------------------------
+//! Transaction instance to be covered. This merely a reference to the last
+//! transaction received from the APB monitor this coverage monitor instance
+//! connects to.
 apb_seq_item analysis_txn;
 
 //------------------------------------------
@@ -53,9 +62,28 @@ apb_seq_item analysis_txn;
 
 // Standard UVM Methods:
 
+/**
+* Conventional UVM component constructor.
+*/
 extern function new(string name = "apb_coverage_monitor", uvm_component parent = null);
-extern function void write(T t);
-extern function void report_phase(uvm_phase phase);
+
+/**
+* Samples coverage on the received transaction.
+*
+* This method implements the UVM subsciber's *observe* method.
+*/
+extern function void write(
+    //! Transaction on which to sample the coverage.
+    T t
+);
+
+/**
+* Reports collected coverage during the corresponding phase of UVM test execution.
+*/
+extern function void report_phase(
+    //! Reference to the corresponding phase instance.
+    uvm_phase phase
+);
 
 endclass: apb_coverage_monitor
 
