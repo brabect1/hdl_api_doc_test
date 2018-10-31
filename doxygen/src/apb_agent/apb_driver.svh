@@ -83,7 +83,6 @@ endfunction
 
 task apb_driver::run_phase(uvm_phase phase);
   apb_seq_item req;
-  apb_seq_item rsp;
   int psel_index;
 
   APB.PSEL <= 0;

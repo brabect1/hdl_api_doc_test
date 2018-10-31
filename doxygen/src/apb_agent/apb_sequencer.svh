@@ -16,10 +16,13 @@
 //   the License for the specific language governing
 //   permissions and limitations under the License.
 //------------------------------------------------------------
-//
-// Class Description:
-//
-//
+
+/**
+* Sequencer specialization for use with apb_driver.
+*
+* This implementation is merely a specialization of the default uvm_sequencer
+* and would be equally well implemented as a `typedef`.
+*/
 class apb_sequencer extends uvm_sequencer #(apb_seq_item, apb_seq_item);
 
 // UVM Factory Registration Macro
@@ -27,6 +30,10 @@ class apb_sequencer extends uvm_sequencer #(apb_seq_item, apb_seq_item);
 `uvm_component_utils(apb_sequencer)
 
 // Standard UVM Methods:
+
+/**
+* COnventional UVM component constructor.
+*/
 extern function new(string name="apb_sequencer", uvm_component parent = null);
 
 endclass: apb_sequencer

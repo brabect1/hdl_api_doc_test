@@ -18,17 +18,30 @@
 //    the License for the specific language governing
 //    permissions and limitations under the License.
 // -------------------------------------------------------------
-//
+
+/**
+* Implements the translation between apb_seq_item and uvm_reg_bus_op.
+*
+* The mapping is one-to-one due to similarities between UVM RAL and APB.
+*/
 class reg2apb_adapter extends uvm_reg_adapter;
 
   `uvm_object_utils(reg2apb_adapter)
 
+   /**
+   * Conventional UVM object constructor.
+   */
    function new(string name = "reg2apb_adapter");
       super.new(name);
  //     supports_byte_enable = 0;
  //     provides_responses = 1;
    endfunction
 
+  /**
+  * Converts a generic, RAL transaction type into an APB bus transaction type.
+  *
+  * This mapping is one to one.
+  */
   virtual function uvm_sequence_item reg2bus(const ref uvm_reg_bus_op rw);
     apb_seq_item apb = apb_seq_item::type_id::create("apb");
     apb.we = (rw.kind == UVM_READ) ? 0 : 1;
@@ -37,6 +50,12 @@ class reg2apb_adapter extends uvm_reg_adapter;
     return apb;
   endfunction: reg2bus
 
+  /**
+  * Converts an APB bus transaction type into a generic, RAL transaction type.
+  *
+  * The mapping is mostly one to one. For simplicity all transactions is flagged
+  * as successful (i.e. status UVM_IS_OK).
+  */
   virtual function void bus2reg(uvm_sequence_item bus_item,
                                 ref uvm_reg_bus_op rw);
     apb_seq_item apb;
