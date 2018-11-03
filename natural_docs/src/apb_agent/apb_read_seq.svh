@@ -17,10 +17,10 @@
 //   permissions and limitations under the License.
 //------------------------------------------------------------
 
-//
-// Class Description:
-//
-//
+/*
+* Class: apb_read_seq
+* Executes a simple 32-bit APB read transaction.
+*/
 class apb_read_seq extends uvm_sequence #(apb_seq_item);
 
 // UVM Factory Registration Macro
@@ -30,7 +30,13 @@ class apb_read_seq extends uvm_sequence #(apb_seq_item);
 //------------------------------------------
 // Data Members (Outputs rand, inputs non-rand)
 //------------------------------------------
+
+// Variable: addr
+// Transaction address.
 rand logic [31:0] addr;
+
+// Variable: data
+// Transaction data (read from the address).
 logic [31:0] data;
 
 //------------------------------------------
@@ -44,7 +50,18 @@ logic [31:0] data;
 //------------------------------------------
 
 // Standard UVM Methods:
+
+/*
+* Function: new
+* Conventional UVM object constructor.
+*/
 extern function new(string name = "apb_read_seq");
+
+/*
+* Function: body
+* Executes a single read transaction from the #addr address, placing the return
+* data in the #data field.
+*/
 extern task body;
 
 endclass:apb_read_seq

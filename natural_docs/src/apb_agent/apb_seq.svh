@@ -16,10 +16,11 @@
 //   the License for the specific language governing
 //   permissions and limitations under the License.
 //------------------------------------------------------------
-//
-// Class Description:
-//
-//
+
+/*
+* Class: apb_seq
+* Executes a random APB transaction.
+*/
 class apb_seq extends uvm_sequence #(apb_seq_item);
 
 // UVM Factory Registration Macro
@@ -42,7 +43,18 @@ class apb_seq extends uvm_sequence #(apb_seq_item);
 //------------------------------------------
 
 // Standard UVM Methods:
+
+/*
+* Function: new
+* Conventional UVM object constructor.
+*/
 extern function new(string name = "apb_seq");
+
+/*
+* Function: body
+* Executes a single random APB transaction. The sequence neither publishes
+* the details of the transaction, nor its results.
+*/
 extern task body;
 
 endclass:apb_seq

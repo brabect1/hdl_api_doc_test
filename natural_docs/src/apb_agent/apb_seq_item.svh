@@ -17,10 +17,17 @@
 //   permissions and limitations under the License.
 //------------------------------------------------------------
 
-//
-// Class Description:
-//
-//
+/*
+* Class: apb_seq_item
+* Base APB transaction.
+*
+* The transaction is used by both apb_driver and apb_monitor. For the driver, the
+* transaction type works for request and response.
+*
+* Implements the basic transaction attributes (address, data, read/write control).
+* More advanced attributes (e.g. error injection, byte enables, etc.) are not
+* supported.
+*/
 class apb_seq_item extends uvm_sequence_item;
 
 // UVM Factory Registration Macro
@@ -30,16 +37,33 @@ class apb_seq_item extends uvm_sequence_item;
 //------------------------------------------
 // Data Members (Outputs rand, inputs non-rand)
 //------------------------------------------
+
+// Variable: addr
+// Bus address.
 rand logic[31:0] addr;
+
+// Variable: data
+// Read/write data.
 rand logic[31:0] data;
+
+// Variable: we
+// Read/write (=0/1) transaction type.
 rand logic we;
+
+// Variable: delay
+// Number of APB clock cycles since the apb_driver received the transaction to
+// the actual start of the transaction on the APB bus.
 rand int delay;
 
+// Variable: error
+// Indicates a failure to drive the item on the bus.
 bit error;
 
 //------------------------------------------
 // Constraints
 //------------------------------------------
+
+// Constrains the randomized transactions for double-word alignment.
 constraint addr_alignment {
   addr[1:0] == 0;
 }
@@ -53,11 +77,41 @@ constraint delay_bounds {
 //------------------------------------------
 
 // Standard UVM Methods:
+
+/*
+* Function: new
+* Conventional UVM object constructor.
+*/
 extern function new(string name = "apb_seq_item");
+
+/*
+* Function: do_copy
+* Implements a class specific deep copy.
+*/
 extern function void do_copy(uvm_object rhs);
+
+/*
+* Function: do_compare
+* Implements a class specific comparison.
+*/
 extern function bit do_compare(uvm_object rhs, uvm_comparer comparer);
+
+/*
+* Function: convert2string
+* Implements a class specific string conversion.
+*/
 extern function string convert2string();
+
+/*
+* Function: do_print
+* Implements a class specific printing.
+*/
 extern function void do_print(uvm_printer printer);
+
+/*
+* Function: do_record
+* Implements a class specific recording.
+*/
 extern function void do_record(uvm_recorder recorder);
 
 endclass:apb_seq_item

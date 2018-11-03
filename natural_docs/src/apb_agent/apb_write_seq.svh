@@ -16,10 +16,11 @@
 //   the License for the specific language governing
 //   permissions and limitations under the License.
 //------------------------------------------------------------
-//
-// Class Description:
-//
-//
+
+/*
+* Class: apb_write_seq
+* Executes a simple 32-bit APB write transaction.
+*/
 class apb_write_seq extends uvm_sequence #(apb_seq_item);
 
 // UVM Factory Registration Macro
@@ -29,7 +30,13 @@ class apb_write_seq extends uvm_sequence #(apb_seq_item);
 //------------------------------------------
 // Data Members (Outputs rand, inputs non-rand)
 //------------------------------------------
+
+// Variable: addr
+// Transaction address.
 rand logic [31:0] addr;
+
+// Variable: data
+// Transaction data (to be written).
 rand logic [31:0] data;
 
 //------------------------------------------
@@ -43,7 +50,17 @@ rand logic [31:0] data;
 //------------------------------------------
 
 // Standard UVM Methods:
+
+/*
+* Function: new
+* Conventional UVM object constructor.
+*/
 extern function new(string name = "apb_write_seq");
+
+/*
+* Function: body
+* Executes a single write transaction writing #data at the #addr address.
+*/
 extern task body;
 
 endclass:apb_write_seq

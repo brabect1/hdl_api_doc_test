@@ -16,26 +16,43 @@
 //   the License for the specific language governing
 //   permissions and limitations under the License.
 //------------------------------------------------------------
-//
-// Class Description:
-//
-//
+
+/*
+* Class: apb_monitor
+* Implements an APB bus transaction monitor.
+*
+* The monitor can snoop transactions for a single slave (i.e. single PSEL) at
+* a time. Observed transactions are passed to subscribers through an analysis
+* port.
+*
+* The monitor transacrion type, apb_seq_item, is shared with the apb_driver
+* implementation.
+*
+* Normally the APB monitor is a part of an APB agent.
+*/
 class apb_monitor extends uvm_component;
 
 // UVM Factory Registration Macro
 //
 `uvm_component_utils(apb_monitor);
 
-// Virtual Interface
+// Variable: apb_if
+// Reference to the APB bus interface
 virtual apb_if APB;
 
 //------------------------------------------
 // Data Members
 //------------------------------------------
-int apb_index = 0; // Which PSEL line is this monitor connected to
+
+// Variable: apb_index
+// Identifies which PSEL line is this monitor connected to.
+int apb_index = 0;
 //------------------------------------------
 // Component Members
 //------------------------------------------
+
+// Variable: ap
+// Analysis port through which to broadcast observed APB transactions.
 uvm_analysis_port #(apb_seq_item) ap;
 
 //------------------------------------------
@@ -44,9 +61,26 @@ uvm_analysis_port #(apb_seq_item) ap;
 
 // Standard UVM Methods:
 
+/*
+* Function: new
+* Conventional UVM component constructor.
+*/
 extern function new(string name = "apb_monitor", uvm_component parent = null);
+/*
+* Function: build_phase
+* Instantiates the analysis port.
+*/
 extern function void build_phase(uvm_phase phase);
+/*
+* Function: run_phase
+* Forks off a forever loop that monitors APB transactions for slave selected
+* by ::apb_index.
+*/
 extern task run_phase(uvm_phase phase);
+/*
+* report_phase
+* Presently a stub function.
+*/
 extern function void report_phase(uvm_phase phase);
 
 endclass: apb_monitor

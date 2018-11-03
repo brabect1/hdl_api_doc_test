@@ -17,22 +17,18 @@
 //   permissions and limitations under the License.
 //------------------------------------------------------------
 
-//------------------------------------------------------------------------------
-//
-// CLASS: apb_agent
-//
-// Implements the UVC Agent component for Amba Peripheral Bus (APB).
-//
-// The implementation comes from the Verification Cookbook at the Verification
-// Academy site (https://verificationacademy.com/). It follows the conventional
-// UVC agent structure.
-//
-// The agent consists of the following parts: Driver, monitor, sequencer and
-// a coverage collection class. The agent is configured through a specific
-// configuration object. The agent exports its monitor's analysis port.
-//
-//------------------------------------------------------------------------------
-
+/*
+* Class: apb_agent
+* Implements the UVC Agent component for Amba Peripheral Bus (APB).
+*
+* The implementation comes from the Verification Cookbook at the Verification
+* Academy site (https://verificationacademy.com/). It follows the conventional
+* UVC agent structure.
+*
+* The agent consists of the following parts: Driver, monitor, sequencer and
+* a coverage collection class. The agent is configured through a specific
+* configuration object. The agent exports its monitor's analysis port.
+*/
 class apb_agent extends uvm_component;
 
 // UVM Factory Registration Macro
@@ -44,18 +40,16 @@ class apb_agent extends uvm_component;
 //------------------------------------------
 
 // Variable: m_cfg
-//
 // Agent configuration. It will be obtained from the UVM Configuration DB during
 // the build phase, under the keyword `apb_agent_config`.
-
 apb_agent_config m_cfg;
+
 //------------------------------------------
 // Component Members
 //------------------------------------------
 
 // Variable: ap
 // Analysis port exported from the agent's monitor component.
-
 uvm_analysis_port #(apb_seq_item) ap;
 
 // Variable: m_monitor
@@ -81,11 +75,10 @@ apb_coverage_monitor m_fcov_monitor;
 
 // Standard UVM Methods:
 
-
-// Function: new
-//
-// Implements the default UVM component constructor.
-
+/*
+* Function: new
+* Implements the default UVM component constructor.
+*/
 extern function new(
     //! Name of the agent component. This name will be associated with the agent
     //! instance and may be used for looking up the instance in the UVM Config DB.
@@ -96,7 +89,6 @@ extern function new(
 
 // Function: build_phase
 // Builds individual components based on configured agent's settings.
-
 extern function void build_phase(
     //! Reference to the build phase instance.
     uvm_phase phase
