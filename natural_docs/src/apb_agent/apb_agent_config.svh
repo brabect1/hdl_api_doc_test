@@ -77,10 +77,12 @@ logic[31:0] range[15:0];
 /*
 * Function: new
 * Conventional constructor for UVM objects.
+*
+* Parameters:
+*   name - Name to be associated with the configuration instance in the UVM
+*          Configuration DB.
 */
 extern function new(
-    //! Name to be associated with the configuration instance in the UVM
-    //! Configuration DB.
     string name = "apb_agent_config"
 );
 

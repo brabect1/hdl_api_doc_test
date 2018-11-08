@@ -78,7 +78,7 @@ extern function void build_phase(uvm_phase phase);
 */
 extern task run_phase(uvm_phase phase);
 /*
-* report_phase
+* Function: report_phase
 * Presently a stub function.
 */
 extern function void report_phase(uvm_phase phase);

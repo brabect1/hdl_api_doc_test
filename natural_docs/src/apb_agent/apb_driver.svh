@@ -59,8 +59,11 @@ apb_agent_config m_cfg;
 //------------------------------------------
 /*
 * Function: sel_lookup
-* Looks up the address and returns PSEL line that should be activated.
+* Looks up the <address> and returns a PSEL line index that should be activated.
 * If the address is invalid, a non positive integer is returned to indicate an error.
+*
+* Parameters:
+*   address - An APB address for which to find a slave index (within PSEL).
 */
 extern function int sel_lookup(logic[31:0] address);
 // Standard UVM Methods:

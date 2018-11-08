@@ -78,26 +78,36 @@ apb_coverage_monitor m_fcov_monitor;
 /*
 * Function: new
 * Implements the default UVM component constructor.
+*
+* Parameters:
+*   name - Name of the agent component. This name will be associated with the agent
+*          instance and may be used for looking up the instance in the UVM Config DB.
+*   parent - Reference to a parent component, which the agent instance will be a part of.
 */
 extern function new(
-    //! Name of the agent component. This name will be associated with the agent
-    //! instance and may be used for looking up the instance in the UVM Config DB.
     string name = "apb_agent",
-    //! Reference to a parent component, which the agent instance will be a part of.
     uvm_component parent = null
 );
 
-// Function: build_phase
-// Builds individual components based on configured agent's settings.
+/*
+* Function: build_phase
+* Builds individual components based on configured agent's settings.
+*
+* Parameters:
+*   phase - Reference to the build phase instance.
+*/
 extern function void build_phase(
-    //! Reference to the build phase instance.
     uvm_phase phase
 );
 
-// Function: connect_phase
-// Connects all the components that have been created suring the build phase.
+/*
+* Function: connect_phase
+* Connects all the components that have been created suring the build phase.
+*
+* Parameters:
+*   phase - Reference to the connect phase instance.
+*/
 extern function void connect_phase(
-    //! Reference to the connect phase instance.
     uvm_phase phase
 );
 

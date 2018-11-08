@@ -5,7 +5,17 @@ This UVC (UVM Verification Component) implements a simple APB bus agent.
 The agent consists of lower level components that yield initiating and
 monitoring bus transactions.
 
+Components of the agent
+- Driver (class <apb_driver>)
+- Monitor (class <apb_monitor>)
+- Sequencer (class <apb_sequencer>)
+- Coverage monitor (class <apb_coverage_monitor>)
+
 The agent may operate in an active mode, in which it instantiates all the
 usual UVC comonents (driver, sequencer, monitor). In a passive mode, the
-agent instantiates only the monitor.
+agent instantiates only the monitor. The operation mode as well as other
+features are controlled through an agent's configuration object (class
+<apb_agent_config>).
 
+The agent may be paired with a UVM register model through an adapter class
+<reg2apb_adapter>.

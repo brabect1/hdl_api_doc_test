@@ -18,7 +18,8 @@
 //------------------------------------------------------------
 
 
-/**
+/*
+* Class: apb_coverage_monitor
 * Collects basic functional coverage information observed by an APB agent.
 *
 * An instance of the coverage monitor will be part of the agent only if its
@@ -62,26 +63,33 @@ apb_seq_item analysis_txn;
 
 // Standard UVM Methods:
 
-/**
+/*
+* Function: new
 * Conventional UVM component constructor.
 */
 extern function new(string name = "apb_coverage_monitor", uvm_component parent = null);
 
-/**
+/*
+* Function: write
 * Samples coverage on the received transaction.
 *
 * This method implements the UVM subsciber's *observe* method.
+*
+* Paramaters:
+*   t - Transaction on which to sample the coverage.
 */
 extern function void write(
-    //! Transaction on which to sample the coverage.
     T t
 );
 
-/**
+/*
+* Function: report_phase
 * Reports collected coverage during the corresponding phase of UVM test execution.
+*
+* Parameters:
+*   phase - Reference to the corresponding phase instance.
 */
 extern function void report_phase(
-    //! Reference to the corresponding phase instance.
     uvm_phase phase
 );
 

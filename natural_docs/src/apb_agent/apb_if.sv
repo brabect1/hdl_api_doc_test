@@ -1,28 +1,37 @@
 /*
 * Interface: apb_if
 * APB bus interface with very simple property checking.
+*
+* Inputs:
+*   PCLK - bus clock
+*   PRESETn - bus reset, active low
 */
 interface apb_if(
-    //! bus clock
     input PCLK,
-    //! bus reset, active low
     input PRESETn
 );
 
-  //! bus address
+  // Variable: PADDR
+  // bus address
   logic[31:0] PADDR;
-  //! bus read data
+  // Variable: PRDATA
+  // bus read data
   logic[31:0] PRDATA;
-  //! bus write data
+  // Variable: PWDATA
+  // bus write data
   logic[31:0] PWDATA;
-  //! Slave select lines, active high.
-  //! Only connect the ones that are needed.
+  // Variable: PSEL
+  // Slave select lines, active high.
+  // Only connect the ones that are needed.
   logic[15:0] PSEL;
-  //! @todo missing description
+  // Variable: PENABLE
+  // @todo missing description
   logic PENABLE;
-  //! read/write control
+  // Variable: PWRITE
+  // read/write control
   logic PWRITE;
-  //! slave ready
+  // Variable: PREADY
+  // slave ready
   logic PREADY;
 
   property psel_valid;
