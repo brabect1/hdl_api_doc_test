@@ -21,7 +21,7 @@
 * Class: apb_seq_item
 * Base APB transaction.
 *
-* The transaction is used by both apb_driver and apb_monitor. For the driver, the
+* The transaction is used by both <apb_driver> and <apb_monitor>. For the driver, the
 * transaction type works for request and response.
 *
 * Implements the basic transaction attributes (address, data, read/write control).

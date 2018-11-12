@@ -25,7 +25,7 @@
 * a time. Observed transactions are passed to subscribers through an analysis
 * port.
 *
-* The monitor transacrion type, apb_seq_item, is shared with the apb_driver
+* The monitor transacrion type, <apb_seq_item>, is shared with the apb_driver
 * implementation.
 *
 * Normally the APB monitor is a part of an APB agent.

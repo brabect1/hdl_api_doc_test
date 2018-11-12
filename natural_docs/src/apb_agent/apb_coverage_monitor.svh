@@ -23,10 +23,10 @@
 * Collects basic functional coverage information observed by an APB agent.
 *
 * An instance of the coverage monitor will be part of the agent only if its
-* configuration knob, apb_agent_config::has_functional_coverage, is set.
+* configuration knob, <apb_agent_config>::has_functional_coverage, is set.
 *
 * The coverage monitor extends uvm_subscriber so it can be connected to
-* apb_monitor.
+* <apb_monitor>.
 */
 class apb_coverage_monitor extends uvm_subscriber #(apb_seq_item);
 
@@ -73,7 +73,7 @@ extern function new(string name = "apb_coverage_monitor", uvm_component parent =
 * Function: write
 * Samples coverage on the received transaction.
 *
-* This method implements the UVM subsciber's *observe* method.
+* This method implements the UVM subsciber's observe method.
 *
 * Paramaters:
 *   t - Transaction on which to sample the coverage.
