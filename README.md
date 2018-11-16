@@ -9,6 +9,34 @@ Doxygen
 no direct support ... utilizes a filter that performs on-fly conversion to C++ ... originally developed by Inteligent DV
 ... now resides on Github https://github.com/SeanOBoyle/DoxygenFilterSystemVerilog ... no longer maintained
 
+```
+# Install needed components
+# (libgtk2.0 is for GraphViz to support PNG and other raster formats)
+sudo apt-get install cmake g++ libgtk2.0-dev
+
+# Install Doxygen
+cd /tmp
+wget http://ftp.stack.nl/pub/users/dimitri/doxygen-1.8.14.src.tar.gz
+tar xzf doxygen-1.8.14.src.tar.gz
+cd doxygen-1.8.14 && mkdir build && cd build
+cmake -DCMAKE_INSTALL_PREFIX=... -G "Unix Makefiles" ..
+make
+make install
+
+# Install GraphViz
+cd /tmp
+wget https://graphviz.gitlab.io/pub/graphviz/stable/SOURCES/graphviz.tar.gz
+tar xzf graphviz.tar.gz
+cd graphviz-2.40.1/
+./configure --prefix=...
+make
+make install
+```
+
+```
+make WITH_DOXYGEN=.../doxygen WITH_GRAPHVIZ_DOT=.../dot
+```
+
 Natural Docs 1.x
 ----------------
 
