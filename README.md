@@ -6,8 +6,27 @@ This repository is to test some API Doc generators for SystemVerilog code and pr
 Doxygen
 -------
 
-no direct support ... utilizes a filter that performs on-fly conversion to C++ ... originally developed by Inteligent DV
-... now resides on Github https://github.com/SeanOBoyle/DoxygenFilterSystemVerilog ... no longer maintained
+Doxygen is an API generator with a rich feature set. It has been the best choice for C/C++ projects
+but it supports a number of other programming languages, incl. VHDL. Unfortunately there is no support
+of SystemVerilog.
+
+Unlike with Natural Docs (see later), there is no easy way to support a new language in Doxygen as
+it needs to understand the syntax. This usually requires a full parser of the target langiage. Another
+way is to use a workaround in a form of a *filter*, which translates the target language into a language
+that Doxygen understands.
+
+This is the way how IntelligentDV (iDV) introduced SystemVerilog to Doxygen (by translating to C++).
+While iDV seems to be long gone, their SV filter code is hosted at [Github](https://www.github.com/SeanOBoyle/),
+but no longer maitained.
+
+The solution has some *glitches*, but otherwise it turns to be pretty effective.
+
+### Running `doxygen` Example ###
+
+Output of the following process on the prepared example is in `doxygen/generated/api/` (for
+online preview see [here](https://brabect1.github.io/hdl_api_doc_test/doxygen/generated/api/index.html)).
+
+First, make sure to install some recent Doxygen version and GraphViz:
 
 ```
 # Install needed components
@@ -33,8 +52,15 @@ make
 make install
 ```
 
+Then run the example from `doxygen/doxygen` using the `makefile`:
+
 ```
+# Generate API doc
+cd doxygen/doxygen
 make WITH_DOXYGEN=.../doxygen WITH_GRAPHVIZ_DOT=.../dot
+
+# View API doc
+firefox ../doc/api/index.html
 ```
 
 Natural Docs 1.x
@@ -53,7 +79,8 @@ Natural Docs ... project ... Languages.txt ... Menu.txt
 
 ### Running `nd` Example ###
 
-Output of the following process on the prepared example is [here](natural_docs/generated/api/index.html).
+Output of the following process on the prepared example is in `natural_docs/generated/api/` (for
+online preview see [here](https://brabect1.github.io/hdl_api_doc_test/natural_docs/generated/api/index.html)).
 
 ```bash
 # Install NaturalDocs 1.x
@@ -75,7 +102,7 @@ The following tables compares SystemVerilog features.
 Feature    | Doxygen 1.82  | Natural Docs 1.52   | Natural Docs 2.x
 -----------|---------------|---------------------|--------------------
 JavaDoc Markup |  Yes          | No (for SV)         | No (for SV)
-Text Markup   |  MarkDown     | ND Custom           | ND Custom 
+Text Markup   |  [MarkDown](https://daringfireball.net/projects/markdown/syntax)     | ND Custom           | ND Custom 
 Images     |  Yes          |  Yes                | Yes
 Code Snippets |  Yes         |  Yes                 | Yes
 Extra Doc  |  Yes          |  Yes                | Yes
