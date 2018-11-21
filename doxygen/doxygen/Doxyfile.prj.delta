@@ -19,8 +19,9 @@ PROJECT_NUMBER         = 0.0.1
 HTML_OUTPUT            = <PATH_PRJ>/doc/api
 HTML_FOOTER            = <PATH_DOXYSCR>/html/footer.html
 INCLUDE_PATH           = <PATH_PRJ>/src
-INPUT                  = <PATH_PRJ>/src
+INPUT                  = <PATH_PRJ>/src <PATH_PRJ>/src/intro.md
 #EXAMPLE_PATH           = <PATH_PRJ>/test
+IMAGE_PATH             = <PATH_PRJ>/src
 
 # If proper coding style is used, then *.svh files are only included. If we let
 # Doxygen process also *.svh files, it will include their contents twice (once
@@ -29,3 +30,6 @@ INPUT                  = <PATH_PRJ>/src
 # files and their source code won't be indexed.
 ## FILE_PATTERNS          = *.sv
 
+# Use a MarkDown file as the main page.
+# (supported since 1.8.3)
+USE_MDFILE_AS_MAINPAGE = <PATH_PRJ>/src/intro.md
