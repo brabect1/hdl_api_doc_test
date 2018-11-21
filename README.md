@@ -24,7 +24,7 @@ The solution has some *glitches*, but otherwise it turns to be pretty effective.
 ### Running `doxygen` Example ###
 
 Output of the following process on the prepared example is in `doxygen/generated/api/` (for
-online preview see [here](https://brabect1.github.io/hdl_api_doc_test/doxygen/generated/api/index.html)).
+online preview see [here](https://brabect1.github.io/hdl_api_doc_test/doxygen/generated/api/)).
 
 First, make sure to install some recent Doxygen version and GraphViz:
 
@@ -80,7 +80,7 @@ Natural Docs ... project ... Languages.txt ... Menu.txt
 ### Running `nd` Example ###
 
 Output of the following process on the prepared example is in `natural_docs/generated/api/` (for
-online preview see [here](https://brabect1.github.io/hdl_api_doc_test/natural_docs/generated/api/index.html)).
+online preview see [here](https://brabect1.github.io/hdl_api_doc_test/natural_docs/generated/api/)).
 
 ```bash
 # Install NaturalDocs 1.x
