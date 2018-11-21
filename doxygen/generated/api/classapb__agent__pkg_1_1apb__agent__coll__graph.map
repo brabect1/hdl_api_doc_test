@@ -1,0 +1,8 @@
+<map id="apb_agent_pkg::apb_agent" name="apb_agent_pkg::apb_agent">
+<area shape="rect" id="node9" href="$classapb__agent__pkg_1_1apb__monitor.html" title="Implements an APB bus transaction monitor. " alt="" coords="505,62,644,103"/>
+<area shape="rect" id="node3" href="$classapb__agent__pkg_1_1apb__coverage__monitor.html" title="Collects basic functional coverage information observed by an APB agent. " alt="" coords="505,137,644,178"/>
+<area shape="rect" id="node5" href="$classapb__agent__pkg_1_1apb__seq__item.html" title="Base APB transaction. " alt="" coords="219,161,358,202"/>
+<area shape="rect" id="node7" href="$classapb__agent__pkg_1_1apb__sequencer.html" title="Sequencer specialization for use with apb_driver. " alt="" coords="505,214,644,255"/>
+<area shape="rect" id="node10" href="$classapb__agent__pkg_1_1apb__driver.html" title="Implements an APB bus master acting as the driver of an APB agent. " alt="" coords="505,291,644,333"/>
+<area shape="rect" id="node12" href="$classapb__agent__pkg_1_1apb__agent__config.html" title="Encapsulates APB agent configuration settings. " alt="" coords="219,357,358,398"/>
+</map>

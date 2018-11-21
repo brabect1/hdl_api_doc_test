@@ -1,0 +1,6 @@
+<map id="Graphical Class Hierarchy" name="Graphical Class Hierarchy">
+<area shape="rect" id="node2" href="$classapb__agent.html" title="Implements the UVC Agent component for Amba Peripheral Bus (APB). " alt="" coords="200,5,283,32"/>
+<area shape="rect" id="node3" href="$classapb__agent__pkg_1_1apb__agent.html" title="Implements the UVC Agent component for Amba Peripheral Bus (APB). " alt="" coords="172,57,311,98"/>
+<area shape="rect" id="node4" href="$classapb__agent__pkg_1_1apb__monitor.html" title="Implements an APB bus transaction monitor. " alt="" coords="172,122,311,163"/>
+<area shape="rect" id="node5" href="$classapb__monitor.html" title="Implements an APB bus transaction monitor. " alt="" coords="195,188,288,215"/>
+</map>
