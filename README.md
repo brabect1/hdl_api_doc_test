@@ -35,9 +35,9 @@ sudo apt-get install cmake g++ libgtk2.0-dev
 
 # Install Doxygen
 cd /tmp
-wget http://ftp.stack.nl/pub/users/dimitri/doxygen-1.8.14.src.tar.gz
-tar xzf doxygen-1.8.14.src.tar.gz
-cd doxygen-1.8.14 && mkdir build && cd build
+wget https://www.doxygen.nl/files/doxygen-1.9.3.src.tar.gzsrc.tar.gz
+tar xzf doxygen-1.9.3.src.tar.gz
+cd doxygen-1.9.3 && mkdir build && cd build
 cmake -DCMAKE_INSTALL_PREFIX=... -G "Unix Makefiles" ..
 make
 make install
